@@ -1,0 +1,2 @@
+# python_blog_1
+用python读取mysql数据库的博客生成html5静态博客网站项目
