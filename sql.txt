@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS blog_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE blog_db;
+
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `title` VARCHAR(255) NOT NULL COMMENT '文章标题',
+  `content` TEXT NOT NULL COMMENT '文章正文(支持Markdown或HTML)',
+  `summary` VARCHAR(500) DEFAULT NULL COMMENT '文章简介',
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '发布时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 插入几条测试数据
+INSERT INTO `posts` (`title`, `content`, `summary`) VALUES 
+('我的第一篇静态博客', '<p>这是第一篇文章的正文内容。使用 Python 自动生成！</p>', '第一篇文章的简要介绍...'),
+('Python 与 MySQL 的完美结合', '<p>通过 PyMySQL 我们可以轻松读取数据，并结合 Jinja2 渲染静态页面。</p>', '关于如何结合 Python 和 MySQL 的简介...');
