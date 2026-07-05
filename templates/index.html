@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的静态个人博客</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        .post-item { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .post-meta { color: #666; font-size: 14px; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>欢迎来到我的静态博客</h1>
+    <hr>
+    <div class="post-list">
+        {% for post in posts %}
+        <div class="post-item">
+            <!-- 链接到生成的详情页静态文件 -->
+            <h2><a href="post_{{ post.id }}.html">{{ post.title }}</a></h2>
+            <p class="post-meta">发布时间：{{ post.created_at }}</p>
+            <p>{{ post.summary }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
